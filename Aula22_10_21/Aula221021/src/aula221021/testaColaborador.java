@@ -16,7 +16,7 @@ public class Colaborador{
     private String cargo;
     private Colaborador supervisor;
     
-    public COlaborador(){
+    public Colaborador(){
     }
          
     public Colaborador (String cargo){

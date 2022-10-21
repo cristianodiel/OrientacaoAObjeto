@@ -14,8 +14,14 @@ package equipe1;
  * @author CristianoLuizDiel
  */
 public class Carro {
-    //private String nome;
+    private String modelo;
+    private String ano;
     public Float velocidade;
+    
+    /*public Carro (String modelo, String ano){
+        this.modelo = modelo;
+        this.ano = ano;
+    }*/
 
 //método de set
     public void acelerar(){
