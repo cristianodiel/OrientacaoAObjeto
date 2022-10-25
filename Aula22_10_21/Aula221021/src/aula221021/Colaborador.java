@@ -9,5 +9,6 @@ package aula221021;
  * @author CristianoLuizDiel
  */
 public class Colaborador {
-    
+    private String name;
+    private String cargo;
 }

@@ -10,17 +10,9 @@ package aula221021;
  * @author CristianoLuizDiel
  */
 public class testaColaborador {
-    
-}
-public class Colaborador{
-    private String cargo;
-    private Colaborador supervisor;
-    
-    public Colaborador(){
-    }
-         
-    public Colaborador (String cargo){
-        this.cargo = cargo;
-        this.supervisor = new Colaborador();
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+    Colaborador colaborador = new Colaborador();   
     }
 }
