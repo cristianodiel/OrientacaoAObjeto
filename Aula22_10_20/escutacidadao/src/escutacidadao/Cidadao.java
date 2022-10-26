@@ -12,12 +12,13 @@ public class Cidadao {
     private String nome;
     private String CPF;
     private String cidade;
+    Endereco endereco;
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
+       public void setNome(String nome) {
         this.nome = nome;
     }
 
@@ -37,6 +38,12 @@ public class Cidadao {
         this.cidade = cidade;
     }
     
-    
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
     
 }

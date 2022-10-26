@@ -9,6 +9,7 @@ package escutacidadao;
  * @author CristianoLuizDiel
  */
 public class OrdemServico {
+    Buraco buraco;
     private String localizacao;
     private String tamanho;
     private int numeroEquipe;
@@ -16,8 +17,17 @@ public class OrdemServico {
     private String equipamento;
     private String hora;
     private String estadoDoBuraco;
+    private Float horasTrabalhadas;
     private String qtidadeMaterial;
     private Float custos;
+    
+    /*Equipe equipe;
+    Buraco buraco;
+    private String equipamento;
+    private Float horasTrabalhadas;
+    private Float qtidadeMaterial;
+    private String status;
+    private Float custos;*/
 
     public String getLocalizacao() {
         return localizacao;
@@ -87,7 +97,7 @@ public class OrdemServico {
         return custos;
     }
 
-    public void setCustos(Float custos) {
+    public void setCustos(OrdemServico) {
         this.custos = custos;
     }
     

@@ -10,12 +10,14 @@ package escutacidadao;
  */
 public class Buraco {
     private int numeroIdentificacao;
-    private String endereco;
-    private String tamanho;
-    private String lovalizacao;
-    private String distrito;
-    private String prioridade;
+    Endereco endereco;
+    Localizacao localizacao;
+    private float comprimento;
+    private float largura;
+    private float profundidade;
+    private int prioridade;
 
+    //métodos
     public int getNumeroIdentificacao() {
         return numeroIdentificacao;
     }
@@ -24,44 +26,50 @@ public class Buraco {
         this.numeroIdentificacao = numeroIdentificacao;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public Localizacao getLocalizacao() {
+        return localizacao;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setLocalizacao(Localizacao localizacao) {
+        this.localizacao = localizacao;
+    }
+    
+    public float getComprimento() {
+        return comprimento;
     }
 
-    public String getTamanho() {
-        return tamanho;
+    public void setComprimento(float comprimento) {
+        this.comprimento = comprimento;
     }
 
-    public void setTamanho(String tamanho) {
-        this.tamanho = tamanho;
+    public float getLargura() {
+        return largura;
     }
 
-    public String getLovalizacao() {
-        return lovalizacao;
+    public void setLargura(float largura) {
+        this.largura = largura;
     }
 
-    public void setLovalizacao(String lovalizacao) {
-        this.lovalizacao = lovalizacao;
+    public float getProfundidade() {
+        return profundidade;
     }
 
-    public String getDistrito() {
-        return distrito;
+    public void setProfundidade(float profundidade) {
+        this.profundidade = profundidade;
     }
 
-    public void setDistrito(String distrito) {
-        this.distrito = distrito;
-    }
-
-    public String getPrioridade() {
+    public float getPrioridade() {
         return prioridade;
     }
 
-    public void setPrioridade(String prioridade) {
-        this.prioridade = prioridade;
+    public void setPrioridade(float comprimento, float largura, float profundidade) {
+        float aux = comprimento * largura * profundidade;
+        if (aux > 50000){
+            this.prioridade = 10;
+        }else {
+            this.prioridade = (int)(50000/aux);
+        }
+        
     }
     
     
