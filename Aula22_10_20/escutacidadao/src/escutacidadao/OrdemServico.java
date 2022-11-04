@@ -15,10 +15,10 @@ public class OrdemServico {
     private int numeroEquipe;
     private int numeroPessoas;
     private String equipamento;
-    private String hora;
+    private Float hora;
     private String estadoDoBuraco;
-    private Float horasTrabalhadas;
-    private String qtidadeMaterial;
+    //private Float horasTrabalhadas;
+    private Float qtidadeMaterial;
     private Float custos;
     
     /*Equipe equipe;
@@ -69,11 +69,11 @@ public class OrdemServico {
         this.equipamento = equipamento;
     }
 
-    public String getHora() {
+    public Float getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(Float hora) {
         this.hora = hora;
     }
 
@@ -85,11 +85,11 @@ public class OrdemServico {
         this.estadoDoBuraco = estadoDoBuraco;
     }
 
-    public String getQtidadeMaterial() {
+    public Float getQtidadeMaterial() {
         return qtidadeMaterial;
     }
 
-    public void setQtidadeMaterial(String qtidadeMaterial) {
+    public void setQtidadeMaterial(Float qtidadeMaterial) {
         this.qtidadeMaterial = qtidadeMaterial;
     }
 
@@ -97,8 +97,9 @@ public class OrdemServico {
         return custos;
     }
 
-    public void setCustos(OrdemServico) {
-        this.custos = custos;
+    public Float setCustos(Float custoMaterial,Float custoHoraPessoa) {
+        this.custos = this.getQtidadeMaterial()*custoMaterial+this.getHora()*this.getNumeroPessoas()*custoHoraPessoa;
+        return custos;
     }
     
     
