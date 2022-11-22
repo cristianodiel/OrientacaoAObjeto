@@ -82,6 +82,7 @@ public class layoutForca extends javax.swing.JFrame {
         if(aux == 0){
             numErros = numErros + 1;
         PainelLetra.setText(PainelLetra.getText()+ " " +String.valueOf(LetraDigitada));
+        pack();
         }
         txtPalpite.setText("");
         endGame();
