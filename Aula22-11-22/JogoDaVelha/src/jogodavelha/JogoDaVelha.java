@@ -4,6 +4,7 @@
  */
 package jogodavelha;
 
+import java.awt.Component;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 
@@ -50,7 +51,7 @@ public class JogoDaVelha extends javax.swing.JFrame {
         } else {
             botao[linha][coluna].setText("O");
         }
-        
+
         checkEndGame();
     }
 
@@ -71,11 +72,11 @@ public class JogoDaVelha extends javax.swing.JFrame {
 
             if (numX == 3) {
                 xWins();
-                win="X";
+                win = "X";
             }
             if (numO == 3) {
                 oWins();
-                win="O";
+                win = "O";
             }
 
         }
@@ -91,7 +92,7 @@ public class JogoDaVelha extends javax.swing.JFrame {
                     numO++;
                 }
             }
-            
+
             if (numX == 3) {
                 xWins();
             }
@@ -113,7 +114,7 @@ public class JogoDaVelha extends javax.swing.JFrame {
             }
 
         }
-        
+
         if (numX == 3) {
             xWins();
         }
@@ -134,19 +135,19 @@ public class JogoDaVelha extends javax.swing.JFrame {
             }
 
         }
-        
+
         if (numX == 3) {
             xWins();
         }
         if (numO == 3) {
             oWins();
         }
-        if (contadorClick==9)
-        if (ResultPanel.getText().contains("wins")){
-        }else{
-            draw();
+        if (contadorClick == 9) {
+            if (ResultPanel.getText().contains("wins")) {
+            } else {
+                draw();
+            }
         }
-        
 
     }
 
@@ -158,14 +159,31 @@ public class JogoDaVelha extends javax.swing.JFrame {
     private void oWins() {
         ResultPanel.setText("O wins!");
         restartGameButton();
+
+        // capturar os botoes do painel e colocar em um vetor
+        Component vetComponet[] = painelDeBotoes.getComponents();
+
+        for (int i = 0; i < vetComponet.length; i++) {
+            JButton aux = (JButton) vetComponet[i];
+            aux.setEnabled(false);
+        }
+
+        /*
+        for(Component cp : painelDeBotoes.getComponents()) {
+            JButton aux = (JButton) cp;
+            aux.setEnabled(false);
+            
+        }
+         */
     }
 
     private void draw() {
         ResultPanel.setText("Draw!");
         restartGameButton();
     }
-    private void restartGameButton(){
-        
+
+    private void restartGameButton() {
+
         restartButton.addActionListener((java.awt.event.ActionEvent evt) -> {
             clickRestart();
             ResultPanel.setText("");
@@ -174,19 +192,20 @@ public class JogoDaVelha extends javax.swing.JFrame {
             EndPanel.remove(restartButton);
             contadorClick = 0;
         });
-        
+
         EndPanel.setLayout(new FlowLayout());
         EndPanel.add(restartButton);
     }
-    private void clickRestart(){
+
+    private void clickRestart() {
         for (linha = 0; linha < 3; linha++) {
             for (coluna = 0; coluna < 3; coluna++) {
                 botao[linha][coluna].setText("");
                 botao[linha][coluna].setEnabled(true);
-                
+
             }
         }
-    
+
     }
 
     /**
@@ -198,6 +217,9 @@ public class JogoDaVelha extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        EndPanel = new javax.swing.JPanel();
+        ResultPanel = new javax.swing.JLabel();
+        painelDeBotoes = new javax.swing.JPanel();
         A1 = new javax.swing.JButton();
         B1 = new javax.swing.JButton();
         C1 = new javax.swing.JButton();
@@ -207,10 +229,10 @@ public class JogoDaVelha extends javax.swing.JFrame {
         A3 = new javax.swing.JButton();
         B3 = new javax.swing.JButton();
         C3 = new javax.swing.JButton();
-        EndPanel = new javax.swing.JPanel();
-        ResultPanel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        EndPanel.add(ResultPanel);
 
         A1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         A1.addActionListener(new java.awt.event.ActionListener() {
@@ -275,7 +297,60 @@ public class JogoDaVelha extends javax.swing.JFrame {
             }
         });
 
-        EndPanel.add(ResultPanel);
+        javax.swing.GroupLayout painelDeBotoesLayout = new javax.swing.GroupLayout(painelDeBotoes);
+        painelDeBotoes.setLayout(painelDeBotoesLayout);
+        painelDeBotoesLayout.setHorizontalGroup(
+            painelDeBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelDeBotoesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(A1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(218, Short.MAX_VALUE))
+            .addGroup(painelDeBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(painelDeBotoesLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(painelDeBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(C1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(B1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(painelDeBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(C2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(B2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(A2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(painelDeBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(C3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(B3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(A3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        painelDeBotoesLayout.setVerticalGroup(
+            painelDeBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelDeBotoesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(A1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(218, Short.MAX_VALUE))
+            .addGroup(painelDeBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(painelDeBotoesLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(painelDeBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(painelDeBotoesLayout.createSequentialGroup()
+                            .addComponent(A2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(B2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(C2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(painelDeBotoesLayout.createSequentialGroup()
+                            .addComponent(B1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(C1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(painelDeBotoesLayout.createSequentialGroup()
+                            .addComponent(A3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(B3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(C3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -283,50 +358,18 @@ public class JogoDaVelha extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(EndPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(C1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(B1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(A1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(C2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(B2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(A2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(C3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(B3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(A3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addComponent(EndPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(painelDeBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(A2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(B2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(C2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(A1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(B1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(C1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(A3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(B3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(C3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(painelDeBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(EndPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                .addComponent(EndPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -425,5 +468,6 @@ public class JogoDaVelha extends javax.swing.JFrame {
     private javax.swing.JButton C3;
     private javax.swing.JPanel EndPanel;
     private javax.swing.JLabel ResultPanel;
+    private javax.swing.JPanel painelDeBotoes;
     // End of variables declaration//GEN-END:variables
 }
