@@ -8,14 +8,14 @@ package equipe2;
  *
  * @author CristianoLuizDiel
  */
-public class Carro {
-    public Float quilometragem;
+//public class Carro {
+    //public Float quilometragem;
     
     //método
-    public void atualizar(quilometragem){
-        this.quilometragem = quilometragem;
-    }
+    //public void atualizar(quilometragem){
+        //this.quilometragem = quilometragem;
+    //}
     
-}
+//}
 
 
